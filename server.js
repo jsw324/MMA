@@ -1,6 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const moment = require('moment');
+const bodyParser = require('body-parser');
 
 const PORT = process.env.PORT || 3500;
 
@@ -16,6 +17,7 @@ app.use(function (req, res, next) {
 });
 
 app.use(express.static('public'));
+app.use(bodyParser.json());
 
 app.get('/fights', (req, res) => {
   var fights = [];
@@ -42,12 +44,27 @@ app.get('/fights', (req, res) => {
            })
          }
        }
-       console.log('fight title',fights[0].title);
+       console.log('fight title from server***',fights[0].title);
        res.status(200).send(fights);
      }
    }).catch(function (err) {
      console.log('err in func', err);
    });
+});
+
+app.get('/fights:id', (req, res) => {
+  var id = req.params.id;
+  console.log('id',id);
+  axios.get(`http://ufc-data-api.ufc.com/api/v3/iphone/events/${fight_id}/fights`)
+  .then((res) => {
+    if (!res) {
+      throw new Error('Unable to retrieve event details');
+    } else {
+      console.log('fight id res', res);
+      
+    }
+  })
+
 });
 
 app.listen(PORT, () => {
