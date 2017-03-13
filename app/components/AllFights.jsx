@@ -1,6 +1,8 @@
 const React = require('react');
 const axios = require('axios');
 const moment = require('moment')
+const {Link} = require('react-router');
+const Event = require('Event');
 
 class AllFights extends React.Component {
   constructor(props) {
@@ -39,7 +41,7 @@ class AllFights extends React.Component {
             <h4 className="text-center">{item.title_tag}</h4>
             <p className="text-center">{item.title}</p>
           </div>
-          <img className="align-center" src={item.img}/>
+          <Link to="/event"><img className="align-center" src={item.img}/></Link>
           <div className="card-section">
             <p>{moment.utc(item.date).format('dddd, MMMM Do YYYY')}</p>
           </div>

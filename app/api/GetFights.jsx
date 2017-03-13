@@ -1,6 +1,7 @@
 const axios = require('axios');
 const moment = require('moment');
 
+
 module.exports = {
   getFights: function() {
     var requestUrl = 'http://localhost:3500/fights';

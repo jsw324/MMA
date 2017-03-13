@@ -26,7 +26,8 @@ module.exports = {
       Nav: 'app/components/Nav.jsx',
       applicationStyles: 'app/styles/app.scss',
       AllFights: 'app/components/AllFights.jsx',
-      GetFights: 'app/api/GetFights.jsx'
+      GetFights: 'app/api/GetFights.jsx',
+      Event: 'app/components/Event.jsx'
     },
     extensions: ['', '.js', '.jsx']
   },

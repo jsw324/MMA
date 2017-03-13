@@ -10,7 +10,6 @@ var Main = (props) => {
       <div>
         <div>
           <p>Main.jsx Rendered</p>
-          <AllFights/>
           {props.children}
         </div>
       </div>
